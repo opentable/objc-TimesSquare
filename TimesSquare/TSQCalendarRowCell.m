@@ -209,6 +209,11 @@
     if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:selectedDateColorForDate:)]) {
         delegateSelectedDateColor = [self.calendarView.delegate calendarView:self.calendarView selectedDateColorForDate:date];
     }
+    
+    UIColor *delegateBackgroundColor = nil;
+    if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:selectedBackgroundColorForDate:)]) {
+        delegateBackgroundColor = [self.calendarView.delegate calendarView:self.calendarView selectedBackgroundColorForDate:date];
+    }
 
     // if the delegate doesn't return a date color, fall back to some sane defaults,
     // which can still be overridden in subclasses
@@ -294,6 +299,7 @@
     [button setTitleColor:dateColor forState:UIControlStateNormal];
     [button setTitleColor:disabledDateColor forState:UIControlStateDisabled];
     [button setTitleShadowColor:dateShadowColor forState:UIControlStateNormal];
+    [button setBackgroundColor:delegateBackgroundColor]; 
 
     // ** ICON **/
 

@@ -171,6 +171,8 @@
 
 - (UIColor*)calendarView: (TSQCalendarView *)calendarView selectedDateColorForDate: (NSDate*) date;
 
+- (UIColor*)calendarView: (TSQCalendarView *)calendarView selectedBackgroundColorForDate: (NSDate*) date;
+
 - (UIImage*)calendarView: (TSQCalendarView *)calendarView backgroundImageForDate: (NSDate*) date size:(CGSize)size;
 
 - (NSDictionary*)calendarView: (TSQCalendarView *)calendarView additionalDateTextAttributesForDate: (NSDate*) date;
