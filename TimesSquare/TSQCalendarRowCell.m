@@ -299,7 +299,7 @@
     [button setTitleColor:dateColor forState:UIControlStateNormal];
     [button setTitleColor:disabledDateColor forState:UIControlStateDisabled];
     [button setTitleShadowColor:dateShadowColor forState:UIControlStateNormal];
-    [button setBackgroundColor:delegateBackgroundColor]; 
+    [button setBackgroundColor:delegateBackgroundColor];
 
     // ** ICON **/
 
@@ -352,6 +352,9 @@
     }
     
     [self updateBackgroundImageForButton:button];
+    UIColor *backgroundColor = [self.calendarView.delegate calendarView:self.calendarView selectedBackgroundColorForDate:date];
+    button.backgroundColor = backgroundColor; 
+    
     NSString *title = [self.dayFormatter stringFromDate:date];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateDisabled];
