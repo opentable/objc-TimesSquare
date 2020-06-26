@@ -228,6 +228,8 @@
     UIColor *delegateBackgroundColor = nil;
     if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:selectedBackgroundColorForDate:)]) {
         delegateBackgroundColor = [self.calendarView.delegate calendarView:self.calendarView selectedBackgroundColorForDate:date];
+        
+        NSLog(@"Captured background color");
     }
 
     // if the delegate doesn't return a date color, fall back to some sane defaults,
