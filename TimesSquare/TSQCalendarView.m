@@ -172,6 +172,8 @@
         [dateRowCell selectColumnForDate:date];
     }
 
+    [dateRowCell updateSelectedBackgroundColorAtDate:date]; 
+
     NSIndexPath *newIndexPath = [self indexPathForRowAtDate:date];
     if (newIndexPath == nil) {
         return;

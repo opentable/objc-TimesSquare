@@ -123,4 +123,7 @@ This is white by default.
  */
 - (void)selectColumnForInitialDate:(NSDate *)date;
 
+
+- (void)updateSelectedBackgroundColorAtDate:(NSDate *)date;
+
 @end

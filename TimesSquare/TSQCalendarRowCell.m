@@ -151,6 +151,21 @@
     self.notThisMonthButtons = notThisMonthButtons;
 }
 
+
+- (void)updateSelectedBackgroundColorAtDate:(NSDate *)date
+{
+    TSQCalendarDayButton *button;
+    for (TSQCalendarDayButton *current in self.dayButtons)
+    {
+        if ([button.day isEqualToDate:date])
+        {
+            button = current;
+        }
+    }
+    
+    button.backgroundColor = [self.calendarView.delegate calendarView:self.calendarView selectedBackgroundColorForDate:date];
+}
+
 - (void)createSelectedButton;
 {
     TSQCalendarDayButton *button = [[TSQCalendarDayButton alloc] initWithFrame:self.contentView.bounds];
@@ -353,7 +368,7 @@
     
     [self updateBackgroundImageForButton:button];
     UIColor *backgroundColor = [self.calendarView.delegate calendarView:self.calendarView selectedBackgroundColorForDate:date];
-    button.backgroundColor = backgroundColor; 
+    button.backgroundColor = backgroundColor;
     
     NSString *title = [self.dayFormatter stringFromDate:date];
     [button setTitle:title forState:UIControlStateNormal];
