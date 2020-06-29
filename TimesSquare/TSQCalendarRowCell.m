@@ -342,6 +342,11 @@
 - (void)updateBackgroundImageForButton:(TSQCalendarDayButton *)button
 {
     NSDate *date = button.day;
+    
+    if (button.isEnabled == NO)
+    {
+        NSLog(@"%@", [NSString stringWithFormat:@"Disabled button for %@", date]); 
+    }
 
     UIImage *delegateBackgroundImage = nil;
     if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:backgroundImageForDate:size:)]) {
