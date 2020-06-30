@@ -174,12 +174,6 @@
     UIColor *dateShadowColor = nil;
 
     NSDate *date = button.day;
-    
-    if (button != nil)
-    {
-      [self updateBackgroundImageForButton:button];
-    }
-    
 
     BOOL dateIsSelectable = YES;
     if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:shouldSelectDate:)]) {
@@ -333,16 +327,7 @@
         delegateBackgroundImage = [self.calendarView.delegate calendarView:self.calendarView backgroundImageForDate:date size:button.bounds.size isInThisMonth:thisMonth];
     }
     
-    UIImage *backgroundImage = nil;
-    if (delegateBackgroundImage != nil) {
-        backgroundImage = delegateBackgroundImage;
-    } else if (button.type == CalendarButtonTypeSelected) {
-        backgroundImage = button.isInitialDay ? [self initialDayBackgroundImage] : [self selectedBackgroundImage];
-    } else if ([button isForToday]) {
-        backgroundImage = [self todayBackgroundImage];
-    }
-    
-    [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+    [button setBackgroundImage:delegateBackgroundImage forState:UIControlStateNormal];
 }
 
 - (void)updateTitleForButton:(TSQCalendarDayButton *)button
@@ -665,8 +650,8 @@
         [self updateAppearanceForButton:self.selectedButton];
         [self updateSubtitlesForButton:self.selectedButton];
 
-//        // update background image
-//        [self updateBackgroundImageForButton:self.selectedButton];
+        // update background image
+        [self updateBackgroundImageForButton:self.selectedButton];
 
         // update selected button text
         self.selectedButton.hidden = NO;
