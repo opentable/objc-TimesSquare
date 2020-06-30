@@ -621,6 +621,19 @@
 - (void)selectColumnForDate:(NSDate *)date;
 {
     [self selectColumnForDate:date isInitialDay:NO];
+    
+    if (date == nil)
+    {
+        for (TSQCalendarDayButton *button in self.dayButtons)
+          {
+              if (button.isInitialDay)
+              {
+                  [self updateBackgroundImageForButton:button];
+                  NSLog(@"CLEAR OUT");
+                  break;
+              }
+          }
+    }
 }
 
 - (void)selectColumnForInitialDate:(NSDate *)date
