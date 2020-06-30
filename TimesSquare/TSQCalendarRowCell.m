@@ -564,13 +564,7 @@
     TSQCalendarDayButton *dayButton = (TSQCalendarDayButton *)sender;
     NSDate *selectedDate = dayButton.day;
     self.calendarView.selectedDate = selectedDate;
- 
-    if ([dayButton.day isEqualToDate:self.calendarView.initialDate]) {
-        [self updateBackgroundImageForButton:dayButton isSelected:YES];
-        NSLog(@"TODAY BUTTON UPDATED");
-    } else {
-        NSLog(@"Today button not updated %@", dayButton.day);
-    }
+    [self updateBackgroundImageForButton:dayButton isSelected:YES];
 }
 
 - (void)layoutSubviews;
@@ -653,7 +647,7 @@
         [self updateSubtitlesForButton:self.selectedButton];
 
         // update background image
-        [self updateBackgroundImageForButton:self.selectedButton isSelected:YES];
+        [self updateBackgroundImageForButton:self.selectedButton isSelected:NO];
 
         // update selected button text
         self.selectedButton.hidden = NO;
