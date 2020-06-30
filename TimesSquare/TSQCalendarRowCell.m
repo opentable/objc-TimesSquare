@@ -338,7 +338,7 @@
         return;
     }
     
-    [self updateBackgroundImageForButton:button isSelected:self.selectedButton == button];
+    [self updateBackgroundImageForButton:button isSelected:(self.selectedButton == button && self.calendarView.selectedDate != nil)];
     NSString *title = [self.dayFormatter stringFromDate:date];
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateDisabled];
