@@ -327,7 +327,10 @@
         delegateBackgroundImage = [self.calendarView.delegate calendarView:self.calendarView backgroundImageForDate:date size:button.bounds.size isInThisMonth:thisMonth isSelected:isSelected];
     }
     
-    [button setBackgroundImage:delegateBackgroundImage forState:UIControlStateNormal];
+    if (button.isInitialDay)
+    {
+      [self.calendarView.selectedDate isEqualToDate:button.day]
+    }
 }
 
 - (void)updateTitleForButton:(TSQCalendarDayButton *)button
@@ -602,7 +605,7 @@
         if (CGRectEqualToRect(button.frame, rect) == NO) {
             button.frame = rect;
             // image views are dependant on button size so they need to be regenerated
-            [self updateBackgroundImageForButton:button isSelected:NO];
+            [self updateBackgroundImageForButton:button isSelected:[self.calendarView.selectedDate isEqualToDate:button.day]];
         }
     }
 }
