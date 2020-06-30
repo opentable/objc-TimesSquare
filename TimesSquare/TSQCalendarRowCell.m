@@ -568,7 +568,7 @@
     
     for (TSQCalendarDayButton *button in self.dayButtons)
     {
-        if ([button.day isEqualToDate:self.calendarView.selectedDate] && button.isInitialDay)
+        if ([button.day isEqualToDate:self.calendarView.selectedDate])
         {
             currentButton = button;
             break;
