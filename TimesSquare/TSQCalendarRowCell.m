@@ -321,10 +321,10 @@
     NSDate *date = button.day;
     
     UIImage *delegateBackgroundImage = nil;
-    if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:backgroundImageForDate:size:isInThisMonth:)]) {
+    if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:backgroundImageForDate:size:isInThisMonth:isSelected:)]) {
         BOOL thisMonth = button.type != CalendarButtonTypeOtherMonth;
         
-        delegateBackgroundImage = [self.calendarView.delegate calendarView:self.calendarView backgroundImageForDate:date size:button.bounds.size isInThisMonth:thisMonth];
+        delegateBackgroundImage = [self.calendarView.delegate calendarView:self.calendarView backgroundImageForDate:date size:button.bounds.size isInThisMonth:thisMonth isSelected:button.isSelected];
     }
     
     [button setBackgroundImage:delegateBackgroundImage forState:UIControlStateNormal];
