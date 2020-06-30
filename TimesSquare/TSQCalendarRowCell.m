@@ -566,7 +566,7 @@
     
     for (TSQCalendarDayButton *button in self.dayButtons)
     {
-        if ([button.day isEqualToDate:self.calendarView.selectedDate])
+        if ([button.day isEqualToDate:self.calendarView.selectedDate] && button.isInitialDay)
         {
             [self updateBackgroundImageForButton:button];
             break;
@@ -575,7 +575,11 @@
     
     self.calendarView.selectedDate = selectedDate;
     
-    [self updateBackgroundImageForButton:dayButton];
+    if (dayButton.isInitialDay)
+    {
+        [self updateBackgroundImageForButton:dayButton];
+    }
+
 }
 
 - (void)layoutSubviews;
