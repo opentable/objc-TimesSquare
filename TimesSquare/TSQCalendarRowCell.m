@@ -608,7 +608,7 @@
         if (CGRectEqualToRect(button.frame, rect) == NO) {
             button.frame = rect;
             // image views are dependant on button size so they need to be regenerated
-            [self updateBackgroundImageForButton:button isSelected:self.selectedButton == button];
+            [self updateBackgroundImageForButton:button isSelected:NO];
         }
     }
 }
@@ -653,7 +653,7 @@
         [self updateSubtitlesForButton:self.selectedButton];
 
         // update background image
-        [self updateBackgroundImageForButton:self.selectedButton isSelected:NO];
+        [self updateBackgroundImageForButton:self.selectedButton isSelected:YES];
 
         // update selected button text
         self.selectedButton.hidden = NO;
