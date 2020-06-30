@@ -329,7 +329,7 @@
     
     if (button.isInitialDay)
     {
-      [self.calendarView.selectedDate isEqualToDate:button.day]
+        [button setBackgroundImage:delegateBackgroundImage forState:UIControlStateNormal];
     }
 }
 
