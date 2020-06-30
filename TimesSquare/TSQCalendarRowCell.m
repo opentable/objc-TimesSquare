@@ -564,17 +564,14 @@
     TSQCalendarDayButton *dayButton = (TSQCalendarDayButton *)sender;
     NSDate *selectedDate = dayButton.day;
     
-    TSQCalendarDayButton *currentButton;
     for (TSQCalendarDayButton *button in self.dayButtons)
     {
         if ([button.day isEqualToDate:self.calendarView.selectedDate])
         {
-            currentButton = button;
+            [self updateBackgroundImageForButton:button];
             break;
         }
     }
-    [self updateBackgroundImageForButton:currentButton];
-    
     
     self.calendarView.selectedDate = selectedDate;
     
