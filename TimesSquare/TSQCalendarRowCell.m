@@ -653,7 +653,7 @@
         [self updateSubtitlesForButton:self.selectedButton];
 
         // update background image
-        [self updateBackgroundImageForButton:self.selectedButton isSelected:YES];
+        [self updateBackgroundImageForButton:self.selectedButton isSelected:NO];
 
         // update selected button text
         self.selectedButton.hidden = NO;
