@@ -174,6 +174,8 @@
     UIColor *dateShadowColor = nil;
 
     NSDate *date = button.day;
+    
+    [self updateBackgroundImageForButton:button]; 
 
     BOOL dateIsSelectable = YES;
     if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:shouldSelectDate:)]) {
