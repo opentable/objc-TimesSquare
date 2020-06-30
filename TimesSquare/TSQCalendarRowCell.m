@@ -175,7 +175,11 @@
 
     NSDate *date = button.day;
     
-    [self updateBackgroundImageForButton:button]; 
+    if (button != nil)
+    {
+      [self updateBackgroundImageForButton:button];
+    }
+    
 
     BOOL dateIsSelectable = YES;
     if ([self.calendarView.delegate respondsToSelector:@selector(calendarView:shouldSelectDate:)]) {
