@@ -559,22 +559,13 @@
     [self setNeedsLayout];
 }
 
-- (void)updateTodayButton
+- (IBAction)dateButtonPressed:(id)sender;
 {
     for (TSQCalendarDayButton *button in self.dayButtons)
     {
-        if ([self.calendarView.selectedDate isEqualToDate:button.day])
-        {
-            [self updateBackgroundImageForButton:button];
-              NSLog(@"INITIAL BUTTON UPDATED");
-            break;
-        }
+        [self updateBackgroundImageForButton:button];
     }
-}
-
-- (IBAction)dateButtonPressed:(id)sender;
-{
-    [self updateTodayButton];
+    
     TSQCalendarDayButton *dayButton = (TSQCalendarDayButton *)sender;
     NSDate *selectedDate = dayButton.day;
     self.calendarView.selectedDate = selectedDate;
@@ -582,6 +573,8 @@
     if ([dayButton.day isEqualToDate:self.calendarView.initialDate]) {
         [self updateBackgroundImageForButton:dayButton];
         NSLog(@"TODAY BUTTON UPDATED");
+    } else {
+        NSLog(@"Today button not updated %@", dayButton.day);
     }
 }
 
