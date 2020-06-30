@@ -566,6 +566,7 @@
         if (button.isInitialDay)
         {
             [self updateBackgroundImageForButton:button];
+              NSLog(@"INITIAL BUTTON UPDATED");
             break;
         }
     }
@@ -573,12 +574,11 @@
 
 - (IBAction)dateButtonPressed:(id)sender;
 {
+    [self updateTodayButton];
     TSQCalendarDayButton *dayButton = (TSQCalendarDayButton *)sender;
     NSDate *selectedDate = dayButton.day;
     self.calendarView.selectedDate = selectedDate;
-    
-    [self updateTodayButton];
-    
+ 
     if ([dayButton.day isEqualToDate:self.calendarView.initialDate]) {
         [self updateBackgroundImageForButton:dayButton];
         NSLog(@"TODAY BUTTON UPDATED");
