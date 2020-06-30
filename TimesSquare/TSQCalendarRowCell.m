@@ -575,10 +575,10 @@
     
     self.calendarView.selectedDate = selectedDate;
     
-  
+    if (dayButton.isInitialDay)
+    {
         [self updateBackgroundImageForButton:dayButton];
-    
-
+    }
 }
 
 - (void)layoutSubviews;
